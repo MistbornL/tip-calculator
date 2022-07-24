@@ -7,15 +7,33 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  flex-direction: column;
 
   header {
+    justify-content: center;
+    display: flex;
     h1 {
       color: variables.$heading-text-color;
-      position: absolute;
+      justify-content: center;
       display: flex;
       letter-spacing: 10px;
-      top: 163px;
+      margin-top: 163px;
       margin-bottom: 87px;
     }
+  }
+}
+
+.calculator {
+  width: 920px;
+  height: 481px;
+  background: #ffffff;
+  box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
+  border-radius: 25px;
+  padding: 48px;
+  box-sizing: border-box;
+
+  .calculator-left {
+    width: 20%;
+    float: left;
   }
 }

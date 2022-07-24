@@ -12,21 +12,26 @@ function App() {
       </header>
       <main>
         <div className="calculator">
-          <div className="calculator-left-top">
-            <p>Bill</p>
-            <input type="number" placeholder="0"></input>
-          </div>
+          <div className="calculator-left">
+            <div className="calculator-left-top">
+              <p>Bill</p>
+              <input type="number" placeholder="0"></input>
+            </div>
 
-          <div className="calculator-left-middle">
-            <p>Selected Tip %</p>
-            <div className="tip-buttons">
-              {Tips.map((data) => {
-                return <button>{data.value}</button>;
-              })}
+            <div className="calculator-left-middle">
+              <p>Selected Tip %</p>
+              <div className="tip-buttons">
+                {Tips.map((data) => {
+                  return <button>{data.value}</button>;
+                })}
+              </div>
+            </div>
+
+            <div className="calculator-left-bottom">
+              <p>Number of People</p>
+              <input type="number" placeholder="0"></input>
             </div>
           </div>
-
-          <div className="calculator-left-bottom"></div>
         </div>
       </main>
     </div>
