@@ -71,6 +71,9 @@ function App() {
                 <span>$0.00</span>
               </div>
             </div>
+            <div className="calculator-right-bottom">
+              <button>RESET</button>
+            </div>
           </div>
         </div>
       </main>
