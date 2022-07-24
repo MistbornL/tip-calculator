@@ -47,6 +47,10 @@
       input {
         @include input-style;
       }
+      input:focus {
+        outline: none !important;
+        border: 2px solid #26c2ae;
+      }
       input::placeholder {
         @include basicFont;
         text-align: right;
@@ -100,5 +104,32 @@
     padding: 40px;
     float: right;
     background-color: #00474b;
+
+    .render-amount {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      h2 {
+        @include texFont;
+        color: white;
+      }
+      p {
+        color: #7f9d9f;
+        font-size: 12px;
+      }
+      span {
+        font-family: "Space Mono";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 71px;
+        /* identical to box height */
+
+        text-align: right;
+        letter-spacing: -1px;
+
+        color: #26c2ae;
+      }
+    }
   }
 }

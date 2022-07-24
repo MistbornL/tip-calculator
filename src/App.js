@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./App.scss";
 import { Tips } from "./data/dummydata";
 function App() {
+  const [bill, setBill] = useState(0);
+  const [people, setPeople] = useState(0);
+  const [custom, setCustom] = useState(0);
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +19,12 @@ function App() {
           <div className="calculator-left">
             <div className="calculator-left-top-bottom">
               <p>Bill</p>
-              <input type="number" placeholder="0"></input>
+              <input
+                onChange={(e) => setBill(e.target.value)}
+                type="text"
+                inputMode="numeric"
+                placeholder="0"
+              ></input>
             </div>
 
             <div className="calculator-left-middle">
@@ -24,31 +33,42 @@ function App() {
                 {Tips.map((data) => {
                   return <button>{data.value}</button>;
                 })}
-                <input placeholder="Custom"></input>
+                <input
+                  onChange={(e) => setCustom(e.target.value)}
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="Custom"
+                ></input>
               </div>
             </div>
 
             <div className="calculator-left-top-bottom">
               <p>Number of People</p>
-              <input type="number" placeholder="0"></input>
+              <input
+                onChange={(e) => setPeople(e.target.value)}
+                type="text"
+                inputMode="numeric"
+                placeholder="0"
+              ></input>
             </div>
           </div>
 
           <div className="calculator-right">
             <div className="calculator-right-top">
               <div className="render-amount">
-                <h2>
-                  Tip Amount <br />
-                  <span>/ Person</span>
-                </h2>
+                <div>
+                  <h2>Tip Amount</h2>
+                  <p>/ Person</p>
+                </div>
                 <span>$0.00</span>
               </div>
               <div className="render-amount">
-                <h2>
-                  Total Amount <br />
-                  <span>/ Person</span>
-                  <span>$0.00</span>
-                </h2>
+                <div>
+                  <h2>Total </h2>
+                  <p>/ Person</p>
+                </div>
+
+                <span>$0.00</span>
               </div>
             </div>
           </div>
