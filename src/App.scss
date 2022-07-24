@@ -36,6 +36,18 @@
   .calculator-left {
     width: 50%;
     float: left;
+    input {
+      padding: 10px;
+      box-sizing: border-box;
+      @include basicFont;
+      @include input-style;
+      text-align: right;
+    }
+
+    input:focus {
+      outline: none !important;
+      border: 2px solid #26c2ae;
+    }
 
     .calculator-left-top-bottom {
       margin-bottom: 40px;
@@ -44,13 +56,11 @@
 
         @include texFont;
       }
-      input {
-        @include input-style;
+
+      input:target {
+        float: right;
       }
-      input:focus {
-        outline: none !important;
-        border: 2px solid #26c2ae;
-      }
+
       input::placeholder {
         @include basicFont;
         text-align: right;
@@ -93,6 +103,10 @@
       height: 48px;
       background: variables.$main-color;
       border-radius: 5px;
+    }
+    button:focus {
+      background-color: #26c2ae;
+      color: black;
     }
   }
 

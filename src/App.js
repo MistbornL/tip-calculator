@@ -5,6 +5,7 @@ function App() {
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(0);
   const [custom, setCustom] = useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -31,7 +32,7 @@ function App() {
               <p>Selected Tip %</p>
               <div className="tip-buttons">
                 {Tips.map((data) => {
-                  return <button>{data.value}</button>;
+                  return <button>{data.value}%</button>;
                 })}
                 <input
                   onChange={(e) => setCustom(e.target.value)}
