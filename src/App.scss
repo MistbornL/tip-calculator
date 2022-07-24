@@ -1,4 +1,5 @@
 @use "./style/variables";
+@import "./style/variables";
 
 .App {
   display: flex;
@@ -33,7 +34,33 @@
   box-sizing: border-box;
 
   .calculator-left {
-    width: 20%;
+    width: 50%;
     float: left;
+
+    .calculator-left-top-bottom {
+      input {
+        @include input-style;
+      }
+      input::placeholder {
+        font-family: "Space Mono";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        /* identical to box height */
+
+        text-align: right;
+
+        color: variables.$main-color;
+
+        mix-blend-mode: normal;
+        opacity: 0.35;
+      }
+    }
+  }
+
+  .calculator-right {
+    width: 50%;
+    float: right;
   }
 }

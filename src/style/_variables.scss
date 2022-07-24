@@ -4,3 +4,11 @@ $hover-color: #26c2ae;
 $input-field-color: #f3f9fa;
 $heading-text-color: #3d6666;
 $font: "Space Mono";
+
+@mixin input-style {
+  width: 379px;
+  height: 48px;
+  background: $input-field-color;
+  border-style: none;
+  border-radius: 5px;
+}
