@@ -38,19 +38,18 @@
     float: left;
 
     .calculator-left-top-bottom {
+      margin-bottom: 40px;
+      p {
+        color: variables.$input-label;
+
+        @include texFont;
+      }
       input {
         @include input-style;
       }
       input::placeholder {
-        font-family: "Space Mono";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 36px;
-        /* identical to box height */
-
+        @include basicFont;
         text-align: right;
-
         color: variables.$main-color;
 
         mix-blend-mode: normal;
@@ -59,8 +58,47 @@
     }
   }
 
+  .calculator-left-middle {
+    p {
+      color: variables.$input-label;
+      @include texFont;
+    }
+  }
+  .tip-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    input {
+      width: 118px;
+      height: 48px;
+      border-radius: 5px;
+      border-style: none;
+    }
+    input::placeholder {
+      text-align: center;
+      @include basicFont;
+      color: #547878;
+    }
+
+    button {
+      margin-bottom: 14px;
+      @include basicFont;
+      color: #ffffff;
+      border-style: none;
+      width: 117px;
+      height: 48px;
+      background: variables.$main-color;
+      border-radius: 5px;
+    }
+  }
+
   .calculator-right {
     width: 50%;
+    height: 100%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 40px;
     float: right;
+    background-color: #00474b;
   }
 }

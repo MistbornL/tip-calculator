@@ -24,6 +24,7 @@ function App() {
                 {Tips.map((data) => {
                   return <button>{data.value}</button>;
                 })}
+                <input placeholder="Custom"></input>
               </div>
             </div>
 

@@ -2,6 +2,7 @@ $background: #c5e4e7;
 $main-color: #00474b;
 $hover-color: #26c2ae;
 $input-field-color: #f3f9fa;
+$input-label: #5e7a7d;
 $heading-text-color: #3d6666;
 $font: "Space Mono";
 
@@ -11,4 +12,25 @@ $font: "Space Mono";
   background: $input-field-color;
   border-style: none;
   border-radius: 5px;
+}
+
+@mixin basicFont {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+@mixin texFont {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
 }
