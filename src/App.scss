@@ -25,6 +25,9 @@
 }
 
 .calculator {
+  button {
+    cursor: pointer;
+  }
   width: 920px;
   height: 481px;
   background: #ffffff;

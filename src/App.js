@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import { Tips } from "./data/dummydata";
 function App() {
-  const [bill, setBill] = useState(0);
-  const [people, setPeople] = useState(0);
+  const [bill, setBill] = useState("");
+  const [people, setPeople] = useState("");
   const [custom, setCustom] = useState(0);
+  const [tip, setTip] = useState(0);
+  const [tipAmount, setTipAmount] = useState(0.0);
+  const [total, setTotal] = useState(0.0);
 
+  useEffect(() => {
+    setTipAmount((bill * tip) / 100 / people);
+    setTotal((parseInt(bill) + (bill * tip) / 100) / people);
+  }, [bill, tip, people]);
+
+  const handleReset = () => {
+    setBill("");
+    setPeople("");
+    setTipAmount();
+    setTotal(0);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +35,7 @@ function App() {
             <div className="calculator-left-top-bottom">
               <p>Bill</p>
               <input
+                value={bill}
                 onChange={(e) => setBill(e.target.value)}
                 type="text"
                 inputMode="numeric"
@@ -31,8 +46,12 @@ function App() {
             <div className="calculator-left-middle">
               <p>Selected Tip %</p>
               <div className="tip-buttons">
-                {Tips.map((data) => {
-                  return <button>{data.value}%</button>;
+                {Tips.map((data, index) => {
+                  return (
+                    <button key={index} onClick={() => setTip(data.value)}>
+                      {data.value}%
+                    </button>
+                  );
                 })}
                 <input
                   onChange={(e) => setCustom(e.target.value)}
@@ -46,6 +65,7 @@ function App() {
             <div className="calculator-left-top-bottom">
               <p>Number of People</p>
               <input
+                value={people}
                 onChange={(e) => setPeople(e.target.value)}
                 type="text"
                 inputMode="numeric"
@@ -61,7 +81,7 @@ function App() {
                   <h2>Tip Amount</h2>
                   <p>/ Person</p>
                 </div>
-                <span>$0.00</span>
+                <span>${tipAmount}</span>
               </div>
               <div className="render-amount">
                 <div>
@@ -69,11 +89,11 @@ function App() {
                   <p>/ Person</p>
                 </div>
 
-                <span>$0.00</span>
+                <span>${total}</span>
               </div>
             </div>
             <div className="calculator-right-bottom">
-              <button>RESET</button>
+              <button onClick={handleReset}>RESET</button>
             </div>
           </div>
         </div>
