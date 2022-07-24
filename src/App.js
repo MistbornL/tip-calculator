@@ -4,14 +4,13 @@ import { Tips } from "./data/dummydata";
 function App() {
   const [bill, setBill] = useState("");
   const [people, setPeople] = useState("");
-  const [custom, setCustom] = useState(0);
   const [tip, setTip] = useState(0);
-  const [tipAmount, setTipAmount] = useState(0.0);
+  const [tipAmount, setTipAmount] = useState(0);
   const [total, setTotal] = useState(0.0);
-
+  console.log(tipAmount);
   useEffect(() => {
     setTipAmount((bill * tip) / 100 / people);
-    setTotal((parseInt(bill) + (bill * tip) / 100) / people);
+    setTotal(Math.round((parseInt(bill) + (bill * tip) / 100) / people));
   }, [bill, tip, people]);
 
   const handleReset = () => {
@@ -54,7 +53,7 @@ function App() {
                   );
                 })}
                 <input
-                  onChange={(e) => setCustom(e.target.value)}
+                  onChange={(e) => setTip(e.target.value)}
                   type="text"
                   inputMode="numeric"
                   placeholder="Custom"
@@ -81,7 +80,7 @@ function App() {
                   <h2>Tip Amount</h2>
                   <p>/ Person</p>
                 </div>
-                <span>${tipAmount}</span>
+                <span>${people && bill ? tipAmount : "0.00"}</span>
               </div>
               <div className="render-amount">
                 <div>
@@ -89,7 +88,7 @@ function App() {
                   <p>/ Person</p>
                 </div>
 
-                <span>${total}</span>
+                <span>${people && bill ? total : "0.00"}</span>
               </div>
             </div>
             <div className="calculator-right-bottom">
