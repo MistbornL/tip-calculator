@@ -7,11 +7,11 @@ function App() {
   const [tip, setTip] = useState(0);
   const [tipAmount, setTipAmount] = useState(0);
   const [total, setTotal] = useState(0.0);
-  console.log(tipAmount);
   useEffect(() => {
     setTipAmount((bill * tip) / 100 / people);
     setTotal(Math.round((parseInt(bill) + (bill * tip) / 100) / people));
   }, [bill, tip, people]);
+  console.log(bill);
 
   const handleReset = () => {
     setBill("");
@@ -32,13 +32,17 @@ function App() {
         <div className="calculator">
           <div className="calculator-left">
             <div className="calculator-left-top-bottom">
-              <p>Bill</p>
+              <div className="zero">
+                <p>Number of People</p>
+                {parseInt(bill) === 0 ? <span>Can’t be zero</span> : null}
+              </div>
               <input
                 value={bill}
                 onChange={(e) => setBill(e.target.value)}
                 type="text"
                 inputMode="numeric"
                 placeholder="0"
+                className={parseInt(bill) === 0 ? "warning" : undefined}
               ></input>
             </div>
 
@@ -62,13 +66,18 @@ function App() {
             </div>
 
             <div className="calculator-left-top-bottom">
-              <p>Number of People</p>
+              <div className="zero">
+                <p>Number of People</p>
+                {parseInt(people) === 0 ? <span>Can’t be zero</span> : null}
+              </div>
+
               <input
                 value={people}
                 onChange={(e) => setPeople(e.target.value)}
                 type="text"
                 inputMode="numeric"
                 placeholder="0"
+                className={parseInt(people) === 0 ? "warning" : undefined}
               ></input>
             </div>
           </div>
