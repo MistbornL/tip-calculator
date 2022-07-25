@@ -51,7 +51,12 @@ function App() {
               <div className="tip-buttons">
                 {Tips.map((data, index) => {
                   return (
-                    <button key={index} onClick={() => setTip(data.value)}>
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setTip(data.value);
+                      }}
+                    >
                       {data.value}%
                     </button>
                   );
