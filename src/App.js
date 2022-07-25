@@ -33,7 +33,7 @@ function App() {
           <div className="calculator-left">
             <div className="calculator-left-top-bottom">
               <div className="zero">
-                <p>Number of People</p>
+                <p>Bill</p>
                 {parseInt(bill) === 0 ? <span>Can’t be zero</span> : null}
               </div>
               <input
